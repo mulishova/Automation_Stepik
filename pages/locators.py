@@ -1,6 +1,12 @@
 from selenium.webdriver.common.by import By
 
 
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_LINK = (By.XPATH, "//div[contains(@class, 'basket')]//a")
+
+
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
@@ -18,3 +24,8 @@ class ProductPageLocators():
     ADDED_ITEM_NAME = (By.XPATH, "//div[contains(@class, 'alertinner')]/strong")
     ADDED_ITEM_PRICE = (By.XPATH, "//div[contains(@class, 'alertinner')]/p/strong")
     SUCCESS_MESSAGE = (By.XPATH, "//div[contains(@class, 'alertinner') and contains(string(), 'has been added')]")
+
+
+class BasketPageLocators():
+    BASKET_ITEMS = (By.XPATH, "//form[contains(@class, 'basket')]")
+    EMPTY_BASKET_LABEL = (By.XPATH, "//p[contains(text(), 'basket is empty')]")
