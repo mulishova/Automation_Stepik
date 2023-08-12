@@ -18,7 +18,11 @@ class ProductPage(BasePage):
     def add_to_basket(self):
         add_to_basket_btn = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         add_to_basket_btn.click()
-        #assert self.solve_quiz_and_get_code(), "the quiz has not been solved"
+
+    def add_to_basket_with_quiz(self):
+        add_to_basket_btn = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
+        add_to_basket_btn.click()
+        assert self.solve_quiz_and_get_code(), "the quiz has not been solved"
 
     def check_item_info_after_adding_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.ADDED_ITEM_NAME), "Item name in the basket is not present"
