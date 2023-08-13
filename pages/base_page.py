@@ -57,6 +57,12 @@ class BasePage():
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
+    def send_keys_to_input(self, locator, key):
+        self.browser.find_element(*locator).send_keys(key)
+
+    def button_click(self, locator):
+        self.browser.find_element(*locator).click()
+
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]

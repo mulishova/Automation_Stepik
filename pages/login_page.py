@@ -38,11 +38,7 @@ class LoginPage(BasePage):
         self.should_be_register_confirm_password_field()
         self.should_be_register_submit_button()
 
-        self.browser.find_element(*LoginPageLocators.REGISTER_NAME).send_keys(email)
-        self.browser.find_element(*LoginPageLocators.REGISTER_PASSWORD).send_keys(password)
-        self.browser.find_element(*LoginPageLocators.REGISTER_CONFIRM_PASSWORD).send_keys(password)
-        self.browser.find_element(*LoginPageLocators.REGISTER_SUBMIT_BUTTON).click()
-
-
-
-
+        self.send_keys_to_input(LoginPageLocators.REGISTER_NAME, email)
+        self.send_keys_to_input(LoginPageLocators.REGISTER_PASSWORD, password)
+        self.send_keys_to_input(LoginPageLocators.REGISTER_CONFIRM_PASSWORD, password)
+        self.button_click(LoginPageLocators.REGISTER_SUBMIT_BUTTON)
